@@ -1,0 +1,37 @@
+Data Center Setup
+-----------------
+
+50 Hosts, each:
+   * 32GB RAM
+   * 64GB Storage
+   * Gigabit Bandwidth
+   * 16 CPU, 1000 MIPS
+
+400 Virtual Machines, each:
+    * 4GB RAM
+    * 2 vCPU, 1000 MIPS
+    * 160MB image size
+
+Scenarios
+---------
+
+Scenario 1: All tasks have the same requirements, 60 sec duration, 2 vCPU
+-----------
+
+	a) num_of_tasks < Available VMs: 300 tasks, 2 vCPU each
+	b) num_of_tasks > Available VMs: i) 500 tasks, ii) 1000 tasks, iii) 1500 tasks - 2 vCPU
+	c) num_of_tasks < Available VMs: Required vCPU > VM CPU, 300 tasks i) 3 vCPU ii) 5 vCPU
+	d) num_of_tasks > Available VMs: Required vCPU > VM CPU, i) 500 tasks ii) 1000 tasks iii) 1500 tasks, A) 3 vCPU B) 5 vCPU
+
+
+Scenario 2: Tasks have uniform random duration time and CPU requirements ( 30 =< Dur_sec =< 90, 1 =< CPU =< 6 )
+-----------
+
+	a) num_of_tasks < Available VMs: 300 Tasks
+	b) num_of_tasks > Available VMs: i) 500 tasks ii) 1000 tasks iii) 1500 tasks
+
+Scenario 3: Decrease the specifications of hardware and create two DC with 50 Hosts each and 8 CPU
+-----------
+	300 VM, 500 Tasks, 50 Hosts
+	Only one DC, with less than 12 CPUs/Host, all jobs take twice time
+	Two DC, with 6 CPUs/Host, some run for the required and some twice
