@@ -156,7 +156,7 @@ public class Scenario1 {
 
 	private static Datacenter createDatacenter(String name) {
 		// PE (Processing Elements) CPU
-		List<Pe> peList = createCPUs(11);
+		List<Pe> peList = createCPUs(16);
 
 		// Host specs
 		Integer RAM = 32000000;
